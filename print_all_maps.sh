@@ -18,9 +18,9 @@ if [ "$#" -ne 1 ]; then
 fi
 
 if [ "$1" == "--print" ]; then
-    grep '^map' "$input_file"
+    grep '^map' "$input_file" | awk '{printf "%s %-"(20 - 1)"s %s\n", $1, $2, $3}'
 else
     output_file="$1"
-    grep '^map' "$input_file" > "$output_file"
+    grep '^map' "$input_file" | awk '{printf "%s %-"(20 - 1)"s %s\n", $1, $2, $3}'
     echo "Results written to $output_file"
 fi
