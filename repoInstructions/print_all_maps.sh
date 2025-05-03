@@ -1,8 +1,9 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Hardcoded input file
-input_file="$(dirname "$0")/kitty.conf"
-#input_file="~/.config/kitty/kitty.conf"
+input_file="${SCRIPT_DIR}/../kitty.conf"
 
 # Function to show usage
 usage() {

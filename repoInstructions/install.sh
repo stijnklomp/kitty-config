@@ -1,11 +1,14 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Paths
-BASE_CONFIG="base.conf"
-MAC_CONFIG="macos.conf"
-LINUX_CONFIG="linux.conf"
-WINDOWS_CONFIG="windows.conf"
-FINAL_CONFIG="kitty.conf"
+UPPER_DIR="${SCRIPT_DIR}/../"
+BASE_CONFIG="${UPPER_DIR}base.conf"
+MAC_CONFIG="${UPPER_DIR}macos.conf"
+LINUX_CONFIG="${UPPER_DIR}linux.conf"
+WINDOWS_CONFIG="${UPPER_DIR}windows.conf"
+FINAL_CONFIG="${UPPER_DIR}kitty.conf"
 
 # Detect OS
 OS_TYPE="$(uname)"
@@ -57,4 +60,4 @@ grep -v '^# vim:fileencoding=' "$OS_SPECIFIC_CONFIG" > "$CLEAN_OS"
 # Cleanup
 rm "$CLEAN_BASE" "$CLEAN_OS"
 
-echo "Final Kitty config generated at: $FINAL_CONFIG"
+echo "Final Kitty config generated at: ~/.config/kitty/kitty.conf"
